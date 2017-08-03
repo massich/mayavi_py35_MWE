@@ -8,7 +8,7 @@ cache:
   - $HOME/.cache/pip
   - $HOME/.ccache
 env:
-    global: PYTHON_VERSION=2.7 DISPLAY=:99.0 MNE_LOGGING_LEVEL=warning TEST_LOCATION=src
+    global: PYTHON_VERSION=2.7 DISPLAY=:99.0 MNE_LOGGING_LEVEL=warning
 
 matrix:
     include:
