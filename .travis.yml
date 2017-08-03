@@ -1,0 +1,40 @@
+dist: trusty
+sudo: false
+language: python
+
+cache:
+  apt: true
+  directories:
+  - $HOME/.cache/pip
+  - $HOME/.ccache
+env:
+    global: PYTHON_VERSION=2.7 DISPLAY=:99.0 MNE_LOGGING_LEVEL=warning TEST_LOCATION=src
+
+matrix:
+    include:
+        # Full (Linux, 2.7) first half
+        - os: linux
+          env: PYTHON_VERSION=2.7
+               CONDA_DEPENDENCIES="numpy scipy matplotlib pandas scikit-learn h5py pillow statsmodels mayavi pytest"
+               PIP_DEPENDENCIES="pysurfer nitime faulthandler joblib nibabel codecov nose-timer nose-faulthandler pytest-sugar pytest-cov pytest-attrib"
+               OPTION=""
+
+        # Py3k + non-default stim channel first half
+        - os: linux
+          env: PYTHON_VERSION=3.5
+               CONDA_DEPENDENCIES="numpy scipy matplotlib pandas scikit-learn h5py pillow statsmodels nose pytest"
+               PIP_DEPENDENCIES="nitime joblib nibabel codecov nose-timer pytest-sugar pytest-cov pytest-attrib"
+               OPTION=""
+
+# Setup anaconda
+before_install:
+    - git clone https://github.com/astropy/ci-helpers.git
+    - source ci-helpers/travis/setup_conda.sh
+
+install:
+
+script:
+    - py.test test_mayavi.py
+
+after_success:
+
