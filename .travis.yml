@@ -21,7 +21,8 @@ matrix:
         # Py3k + non-default stim channel first half
         - os: linux
           env: PYTHON_VERSION=3.5
-               CONDA_DEPENDENCIES="pytest"
+               CONDA_CHANNELS='conda-forge'
+               CONDA_DEPENDENCIES="mayavi pytest"
                # PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib mayavi"
 
 # Setup anaconda
@@ -32,6 +33,7 @@ before_install:
 install:
 
 script:
+    - pwd
     - py.test test_mayavi.py
 
 after_success:
