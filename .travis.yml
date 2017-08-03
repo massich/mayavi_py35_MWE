@@ -16,13 +16,13 @@ matrix:
         - os: linux
           env: PYTHON_VERSION=2.7
                CONDA_DEPENDENCIES="mayavi pytest"
-               PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib"
+               # PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib"
 
         # Py3k + non-default stim channel first half
         - os: linux
           env: PYTHON_VERSION=3.5
                CONDA_DEPENDENCIES="pytest"
-               PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib mayavi"
+               # PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib mayavi"
 
 # Setup anaconda
 before_install:
