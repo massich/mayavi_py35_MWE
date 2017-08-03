@@ -15,6 +15,7 @@ matrix:
         # Full (Linux, 2.7) first half
         - os: linux
           env: PYTHON_VERSION=2.7
+               CONDA_CHANNELS='conda-forge'
                CONDA_DEPENDENCIES="mayavi pytest"
                # PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib"
 
