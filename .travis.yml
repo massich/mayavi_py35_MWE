@@ -26,6 +26,11 @@ matrix:
                CONDA_DEPENDENCIES="mayavi pytest"
                # PIP_DEPENDENCIES="pytest-sugar pytest-cov pytest-attrib mayavi"
 
+        - os: osx
+          env: 
+               CONDA_DEPENDENCIES="numpy scipy matplotlib pandas scikit-learn h5py pillow statsmodels mayavi pytest"
+               PIP_DEPENDENCIES="pysurfer nitime faulthandler joblib nibabel codecov nose-timer nose-faulthandler pytest-sugar pytest-cov pytest-attrib"
+
 # Setup anaconda
 before_install:
     - git clone https://github.com/astropy/ci-helpers.git
